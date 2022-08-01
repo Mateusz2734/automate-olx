@@ -6,18 +6,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from dotenv import load_dotenv
 from login import login
+from config import config
 import os
 
 load_dotenv()
 
-options = Options()
-options.page_load_strategy = 'normal'
-
-service = Service(executable_path=os.getenv("AUTOMATION_PATH"))
-driver = webdriver.Chrome(service=service)
-
-driver.get("https://www.olx.pl/")
-driver.set_window_position(3000, 0)
-driver.maximize_window()
+driver = config()
 
 login(driver)
