@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from dotenv import load_dotenv
+from login import login
 import os
 
 load_dotenv()
@@ -18,3 +19,5 @@ driver = webdriver.Chrome(service=service)
 driver.get("https://www.olx.pl/")
 driver.set_window_position(3000, 0)
 driver.maximize_window()
+
+login(driver)
