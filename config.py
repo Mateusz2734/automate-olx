@@ -7,7 +7,7 @@ def config():
     options = Options()
     options.page_load_strategy = 'normal'
 
-    service = Service(executable_path=os.getenv("AUTOMATION_PATH"))
+    service = Service(executable_path=os.getenv("CHROME_DRIVER_PATH"))
     driver = webdriver.Chrome(service=service)
 
     driver.get("https://www.olx.pl/")

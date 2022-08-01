@@ -9,8 +9,7 @@ from login import login
 from config import config
 import os
 
-load_dotenv()
-
-driver = config()
-
-login(driver)
+if __name__ == '__main__':
+    load_dotenv()
+    driver = config()
+    login(driver)
