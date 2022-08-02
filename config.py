@@ -6,6 +6,7 @@ import os
 def config():
     options = Options()
     options.page_load_strategy = 'normal'
+    options.add_argument("--incognito")
 
     service = Service(executable_path=os.getenv("CHROME_DRIVER_PATH"))
     driver = webdriver.Chrome(service=service)

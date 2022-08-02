@@ -2,9 +2,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 import os
+import time
 
 
-def login(driver):
+def login_email(driver):
     accept_button = WebDriverWait(driver, timeout=5).until(
         ec.presence_of_element_located((By.ID, 'onetrust-accept-btn-handler')))
     accept_button.click()
@@ -16,6 +17,8 @@ def login(driver):
     email = WebDriverWait(driver, timeout=5).until(
         ec.presence_of_element_located((By.ID, 'userEmail')))
     email.send_keys(os.getenv("OLX_EMAIL"))
+
+    time.sleep(1.5)
 
     password = WebDriverWait(driver, timeout=5).until(
         ec.presence_of_element_located((By.ID, 'userPass')))
