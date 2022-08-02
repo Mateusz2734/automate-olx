@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from config import config
 from login import login_email
 from post import post
+from excel import read_from_excel
 import os
 
 
@@ -15,8 +16,13 @@ if __name__ == '__main__':
 
     load_dotenv()
 
+    list_of_products = read_from_excel("./OLX.xlsx")
+
     driver = config()
 
     login_email(driver)
 
-    post(driver)
+    for product in list_of_products:
+        post(driver, product)
+
+    
