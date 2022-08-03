@@ -2,12 +2,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 
-class Product:
-    title = "Book that every programmer should read"
-    photo = "C:/Users/mateu/Desktop/app-json-icon.png"
-    description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras faucibus lectus in orci volutpat varius. Proin iaculis ex elit, id aliquet lacus rhoncus eu. In id ligula a felis mattis fringilla. Suspendisse ut accumsan elit, sit amet mattis ipsum. Mauris porta tortor quis purus sodales, quis aliquam ipsum molestie. Aliquam dignissim egestas dolor, id volutpat turpis efficitur quis. Aliquam pharetra justo leo, porttitor euismod dui vulputate imperdiet. Duis rutrum est ac odio suscipit elementum. Integer maximus tincidunt augue quis volutpat. Nam in mattis augue, non hendrerit justo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum bibendum metus a mauris mollis, eu dapibus risus bibendum."
-    price = "15"
-
 
 def post(driver, product):
     post_new_ad = WebDriverWait(driver, timeout=10).until(
@@ -46,7 +40,7 @@ def post(driver, product):
         (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[2]/div/div/div[1]/button')))
     set_used.click()
 
-    size_s =  WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
+    size_s = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
         (By.XPATH, '//*[@id="Band-S__toggle"]/span/div/p[2]')))
     size_s.click()
 
