@@ -22,7 +22,11 @@ if __name__ == '__main__':
 
     login_email(driver)
 
+    post_new_ad = WebDriverWait(driver, timeout=10).until(
+        ec.presence_of_element_located((By.XPATH, '//*[@id="root"]/header/div/div/button')))
+    post_new_ad.click()
+
     for product in list_of_products:
         post(driver, product)
 
-    
+    driver.quit()

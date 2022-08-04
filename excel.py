@@ -20,5 +20,6 @@ def read_from_excel(filename):
         photo = df.loc[index, 'Photo']
         description = df.loc[index, 'Description']
         price = df.loc[index, 'Price']
+        price = str(price)
         list_of_products.append(Product(title, photo, description, price))
     return list_of_products

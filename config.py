@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 import os
 
+
 def config():
     options = Options()
     options.page_load_strategy = 'normal'
