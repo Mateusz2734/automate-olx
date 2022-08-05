@@ -34,12 +34,20 @@ def post(driver, product):
         (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[1]/div/div/div[1]/button')))
     set_private.click()
 
-    set_used = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
-        (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')))
-    set_used_scrl = driver.find_element(
-        By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')
-    driver.execute_script("arguments[0].scrollIntoView();", set_used_scrl)
-    set_used.click()
+    try:
+        set_used = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
+            (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[2]/div/div/div[1]/button')))
+        set_used_scrl = driver.find_element(
+            By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[2]/div/div/div[1]/button')
+        driver.execute_script("arguments[0].scrollIntoView();", set_used_scrl)
+        set_used.click()
+    except:
+        set_used = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
+            (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')))
+        set_used_scrl = driver.find_element(
+            By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')
+        driver.execute_script("arguments[0].scrollIntoView();", set_used_scrl)
+        set_used.click()
 
     size_s = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
         (By.XPATH, '//*[@id="Band-S__toggle"]/span/div/p[2]')))
@@ -55,6 +63,7 @@ def post(driver, product):
     submit = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
         (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[8]/div/button[2]')))
     submit.click()
+    print(f"Product {product.title} added")
 
     add_btn = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
         (By.XPATH, '//*[@id="root"]/div/main/div/div[5]/div[2]/div/button')))
