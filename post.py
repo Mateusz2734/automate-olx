@@ -35,14 +35,14 @@ def post(driver, product):
     set_private.click()
 
     try:
-        set_used = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
+        set_used = WebDriverWait(driver, timeout=3).until(ec.presence_of_element_located(
             (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[2]/div/div/div[1]/button')))
         set_used_scrl = driver.find_element(
             By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[2]/div/div/div[1]/button')
         driver.execute_script("arguments[0].scrollIntoView();", set_used_scrl)
         set_used.click()
     except:
-        set_used = WebDriverWait(driver, timeout=10).until(ec.presence_of_element_located(
+        set_used = WebDriverWait(driver, timeout=3).until(ec.presence_of_element_located(
             (By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')))
         set_used_scrl = driver.find_element(
             By.XPATH, '//*[@id="posting-form"]/main/div[1]/div[4]/div/div[2]/ul/li[3]/div/div/div[1]/button')
